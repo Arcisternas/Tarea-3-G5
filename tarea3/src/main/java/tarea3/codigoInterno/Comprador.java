@@ -1,8 +1,7 @@
 package tarea3.codigoInterno;
 
-import tarea3.codigoInterno.Exeptions.NoHayProductoException;
-import tarea3.codigoInterno.Exeptions.PagoIncorrectoException;
-import tarea3.codigoInterno.Exeptions.PagoInsuficienteException;
+import tarea3.codigoInterno.Exeptions.*;
+import tarea3.codigoInterno.Productos.*;
 /**
  * Clase de un Comprador que debe pedir un Producto e ingresar el pago
  * @author Maria Jesus Olivares

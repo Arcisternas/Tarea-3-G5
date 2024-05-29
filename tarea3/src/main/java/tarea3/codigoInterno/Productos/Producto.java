@@ -1,11 +1,14 @@
-package tarea3.codigoInterno;
+package tarea3.codigoInterno.Productos;
+
+import tarea3.codigoInterno.Productos.Bebidas.Bebida;
+import tarea3.codigoInterno.Productos.Dulces.Dulce;
 
 /**
  * SuperClase de Productos de tipo Bebida y Dulce
  * @author Maria Jesus Olivares
  */
 
-abstract class Producto {
+public abstract class Producto {
     //int para almacenar el numero de serie de los productos
     private int serie;
     /**

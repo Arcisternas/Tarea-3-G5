@@ -1,8 +1,10 @@
 package tarea3.codigoInterno;
 
-import tarea3.codigoInterno.Exeptions.NoHayProductoException;
-import tarea3.codigoInterno.Exeptions.PagoIncorrectoException;
-import tarea3.codigoInterno.Exeptions.PagoInsuficienteException;
+import tarea3.codigoInterno.Exeptions.*;
+import tarea3.codigoInterno.Productos.Bebidas.*;
+import tarea3.codigoInterno.Productos.Dulces.*;
+import tarea3.codigoInterno.Productos.*;
+
 /**
  * Clase de Expendedor en el cual se guardan las monedas y productos, siendo posible comprar estos ultimos
  * @author Ariel Cisternas
