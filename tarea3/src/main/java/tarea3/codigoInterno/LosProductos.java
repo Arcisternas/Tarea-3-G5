@@ -34,10 +34,10 @@ enum LosProductos{
     public int getPrecio(){
         switch (num) {
             case 1:
-                precio = 1100;
+                precio = 300;
                 break;
             case 2:
-                precio = 900;
+                precio = 500;
                 break;
             case 3:
                 precio = 1000;
