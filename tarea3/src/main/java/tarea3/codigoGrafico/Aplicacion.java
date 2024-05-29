@@ -8,5 +8,4 @@ public class Aplicacion {
         Ventana v = new Ventana();
         v.setVisible(true);
     }
-    
 }
