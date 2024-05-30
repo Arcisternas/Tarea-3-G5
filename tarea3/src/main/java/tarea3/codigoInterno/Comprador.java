@@ -27,7 +27,8 @@ class Comprador{
      * @see Producto#consumir() Consumir el Producto
      */
     public Comprador(Moneda m, int queproducto, Expendedor exp) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException{
-        Producto p = exp.comprarProducto(m, queproducto);
+        exp.comprarProducto(m, queproducto);
+        Producto p = exp.getProducto(); 
 
         if(p==null){
             sonido = null;

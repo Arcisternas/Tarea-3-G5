@@ -18,6 +18,8 @@ class Expendedor {
     private Deposito<Dulce> snickers;
     private Deposito<Dulce> super8;
     private Deposito<Moneda> vueltoM;
+    private Deposito<Producto> producto;
+    private Deposito<Moneda> exito;
     /**int del precio del producto */
     private int cuantocuesta;
     /**int de la cantidad de Monedas de 100 que hay que dar como vuelto */
@@ -34,6 +36,8 @@ class Expendedor {
         this.fanta = new Deposito<Bebida>();
         this.snickers = new Deposito<Dulce>();
         this.super8 = new Deposito<Dulce>();
+        this.producto = new Deposito<Producto>();
+        this.exito = new Deposito<Moneda>();
 
         for (int i = 0; i < cuantas; i++) {
             coca.add(new CocaCola(i));
@@ -68,7 +72,7 @@ class Expendedor {
      * @throws PagoIncorrectoException
      * @see LosProductos
      */
-    public Producto comprarProducto(Moneda m, int cual) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException {
+    public void comprarProducto(Moneda m, int cual) throws PagoInsuficienteException, NoHayProductoException, PagoIncorrectoException {
         //¿Se pagó correctamente?
         if(m == null) {
             Producto p = null;
@@ -128,14 +132,17 @@ class Expendedor {
             throw new NoHayProductoException("El deposito esta vacio");
         } else if (m.compareTo(cuantocuesta) >= 0){//¿el pago es correcto?
 
+            exito.add(m);
             cantMonedas100 = (m.getValor() - cuantocuesta) / 100;
-
+            producto.add(p);
 
             for (int i = 0; i < cantMonedas100; i++) {
                 Moneda sobrante = new Moneda100();
                 vueltoM.add(sobrante);
             }
         }
-        return p;
+    }
+    public Producto getProducto(){
+        return producto.get();
     }
 }
