@@ -7,15 +7,12 @@ public class Ventana extends JFrame {
     public Ventana(){
         super();
         this.setTitle("Maquina Expendedora");
-        PanelExpendedor pe = new PanelExpendedor("/imagenes/ventana/base.png");
-        setContentPane(pe);
-
-        this.setLayout(new BorderLayout());
-        this.setForeground((Color.WHITE));
+        PanelPrincipal pp = new PanelPrincipal();
+        setContentPane(pp);
 
         
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(800,600);
+        this.setSize(1000,800);
         this.setVisible(true);
     }
 }

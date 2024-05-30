@@ -8,9 +8,11 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelExpendedor exp;
   
     public PanelPrincipal () {
-        exp = new PanelExpendedor ("/imagenes/ventana/base.png");
+        exp = new PanelExpendedor ("/imagenes/ventana/expendedor.png");
     //cf = new PanelComprador(..);
         this.setBackground(Color.white);
+        this.setLayout(new BorderLayout());
+        this.add(exp, BorderLayout.CENTER);
     }
     public void paintComponent (Graphics g) { //todo se dibuja a partir de este método
     super.paintComponent(g); //llama al método pint al que hace override en la super clase
