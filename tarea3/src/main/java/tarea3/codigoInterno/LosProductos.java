@@ -5,7 +5,7 @@ package tarea3.codigoInterno;
  * @author Maria Jesus Olivares
  */
 
-enum LosProductos{
+public enum LosProductos{
     /** Se enumeran los productos (Sean Dulces o Bebidas) para facilitar procesos */ 
     SNICKERS(1),
     SUPER8(2),

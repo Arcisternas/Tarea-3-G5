@@ -10,7 +10,7 @@ import tarea3.codigoInterno.Productos.*;
  * @author Ariel Cisternas
  * @author Maria Jesus Olivares
  */
-class Expendedor {
+public class Expendedor {
     /**Depositos donde se guardan Dulces, Bebidas y Monedas por separado */
     private Deposito<Bebida> coca;
     private Deposito<Bebida> sprite;

@@ -1,10 +1,11 @@
 package tarea3.codigoInterno;
+import java.awt.Image;
 import java.util.ArrayList;
 /**
  * Clase Deposito el cual se puede utilizar para guardar Monedas, Dulces y Bebidas
  * @author Ariel Cisternas
  */
-class Deposito<T> {
+public class Deposito<T>{
     /**Lista donde se guardaran los productos/monedas segun el tipo*/
     private ArrayList<T> almacen;
 
@@ -16,6 +17,7 @@ class Deposito<T> {
     /**
      * Metodo donde se añaden los productos al almacen
      * @param t Serie de los productos o Moneda a guardar en el almacen
+     * @return 
      */
     public void add(T t) {
         almacen.add(t);
@@ -31,4 +33,12 @@ class Deposito<T> {
             return null;
         }
     }
+
+    public int size() {
+        return almacen.size();
+    }
+    public T getP(int index){
+        return almacen.get(index);
+    }
+    
 }
