@@ -96,6 +96,5 @@ public class PanelProductos extends JPanel {
             default:
                 break;
         }
-        repaint();
     }
 }

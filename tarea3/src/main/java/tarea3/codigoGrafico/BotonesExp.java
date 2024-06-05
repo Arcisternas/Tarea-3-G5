@@ -4,13 +4,14 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class BotonesExp extends JPanel{
+public class BotonesExp extends JPanel implements ActionListener{
     private JButton boton1;
     private JButton boton2;
     private JButton boton3;
     private JButton boton4;
     private JButton boton5;
     private final PanelProductos panpr;
+    private int val;
 
     public BotonesExp(final PanelProductos panpr){
         this.panpr = panpr;
@@ -37,10 +38,12 @@ public class BotonesExp extends JPanel{
             @Override
             public void actionPerformed(ActionEvent e){
                 JButton b = (JButton) e.getSource();
-                int val = (int) b.getClientProperty("value");
+                val = (int) b.getClientProperty("value");
                 panpr.getImagenProducto(val);
+                repaint();
             }
         };
+        boton1.addActionListener(listener);
         boton2.addActionListener(listener);
         boton3.addActionListener(listener);
         boton4.addActionListener(listener);
@@ -51,5 +54,13 @@ public class BotonesExp extends JPanel{
         add(boton4);
         add(boton5);
         setOpaque(false);
+    }
+    public int getval(){
+        return val;
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 }
