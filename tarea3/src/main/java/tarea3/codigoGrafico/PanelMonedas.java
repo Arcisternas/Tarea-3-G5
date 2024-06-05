@@ -1,8 +1,12 @@
 package tarea3.codigoGrafico;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.Border;
+
+import tarea3.codigoInterno.Monedas.*;
+
 public class PanelMonedas extends JPanel{
     private JButton botonMoneda100;
     private JButton botonMoneda500;
@@ -12,7 +16,17 @@ public class PanelMonedas extends JPanel{
     private ImageIcon moneda500;
     private ImageIcon moneda1000;
     private ImageIcon moneda1500;
+    private int mon100;
+    private int mon500;
+    private int mon1000;
+    private int mon1500;
+    private VentanaMonedaSeleccionada ventanaMonedaSeleccionada;
+    protected Moneda monedaSeleccionada;
     public PanelMonedas() {
+        mon100 = PanelComprador.comprador.getCantidadMonedas(100);
+        mon500 = PanelComprador.comprador.getCantidadMonedas(500);
+        mon1000 = PanelComprador.comprador.getCantidadMonedas(1000);
+        mon1500 = PanelComprador.comprador.getCantidadMonedas(1500);
         setLayout(null);
         setBounds(5, 80, 330, 315);
         botonMoneda100 = new JButton();
@@ -35,6 +49,26 @@ public class PanelMonedas extends JPanel{
         add(botonMoneda500);
         add(botonMoneda1000);
         add(botonMoneda1500);
+        ActionListener listener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton b = (JButton) e.getSource();
+                if (b == botonMoneda100) {
+                    seleccionarMoneda(100);
+                } else if (b == botonMoneda500) {
+                    seleccionarMoneda(500);
+                } else if (b == botonMoneda1000) {
+                    seleccionarMoneda(1000);
+                } else if (b == botonMoneda1500) {
+                    seleccionarMoneda(1500);
+                }
+                repaint();
+            }
+        };
+        botonMoneda100.addActionListener(listener);
+        botonMoneda500.addActionListener(listener);
+        botonMoneda1000.addActionListener(listener);
+        botonMoneda1500.addActionListener(listener);
         setOpaque(false);
 
     }
@@ -43,14 +77,18 @@ public class PanelMonedas extends JPanel{
         super.paintComponent(g);
         g.setColor(new Color(213,203,245));
         g.setFont(new Font("Arial", Font.BOLD, 15));
-        g.drawString("Cantidad: ", 40, 205);
-        g.drawString("Cantidad: ", 40, 360);
-        g.drawString("Cantidad: ", 200, 205);
-        g.drawString("Cantidad: ", 200, 360);
+        g.drawString("Cantidad: "+ mon100, 40, 205);
+        g.drawString("Cantidad: " + mon500, 40, 360);
+        g.drawString("Cantidad: "+ mon1000, 200, 205);
+        g.drawString("Cantidad: " + mon1500, 200, 360);
         g.setFont(new Font("Arial", Font.PLAIN, 20));
         g.drawString("$100", 60, 115);
         g.drawString("$500", 60, 270);
         g.drawString("$1000", 215, 115);
         g.drawString("$1500", 215, 270);
+    }
+    public void seleccionarMoneda(int precio){
+        monedaSeleccionada = PanelComprador.comprador.getMonedaSeleccionada(precio);
+        ventanaMonedaSeleccionada = new VentanaMonedaSeleccionada(monedaSeleccionada);
     }
 }
