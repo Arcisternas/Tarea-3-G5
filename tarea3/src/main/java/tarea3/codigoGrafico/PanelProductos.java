@@ -12,6 +12,7 @@ public class PanelProductos extends JPanel {
     private Deposito<ImageIcon> Fanta;
     private Deposito<ImageIcon> Snickers;
     private Deposito<ImageIcon> Super8;
+    private BotonesExp be;
     
     public PanelProductos(){
         this.Coca = new Deposito<>();
@@ -73,27 +74,28 @@ public class PanelProductos extends JPanel {
     public void getImagenProducto(int num){
         switch (num) {
             case 1:
-                Coca.get();
+                if(Coca.size() != 0) Coca.get();
                 break;
             
             case 2:
-                Sprite.get();
+                if(Sprite.size() != 0) Sprite.get();
                 break;
 
             case 3:
-                Fanta.get();
+                if(Fanta.size() != 0) Fanta.get();
                 break;
 
             case 4:
-                Snickers.get();
+                if(Snickers.size() != 0)Snickers.get();
                 break;
 
             case 5:
-                Super8.get();
+                if(Super8.size() != 0)Super8.get();
                 break;
 
             default:
                 break;
         }
+        repaint();
     }
 }

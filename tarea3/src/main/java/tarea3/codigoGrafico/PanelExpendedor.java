@@ -11,12 +11,17 @@ public class PanelExpendedor extends JPanel{
     private Image fondoBase;
     private Expendedor exp;
     private PanelProductos panpr;
+    private BotonesExp be;
 
     public PanelExpendedor(){
+        setLayout(new BorderLayout());
         fondoBase = new ImageIcon(getClass().getResource("/imagenes/ventana/expendedor.png")).getImage();
         this.exp = new Expendedor(10);
         this.panpr = new PanelProductos();
+        this.be = new BotonesExp(panpr);
         this.add(panpr);
+        this.add(be);
+      
         setOpaque(false);
     }
 
