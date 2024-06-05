@@ -6,17 +6,21 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PanelComprador extends JPanel{
-    private JPanel panelComprador = new JPanel();
-    private JLabel Precios;
-    private Image titulo;
+    private Image cuadrocomprador;
+    private PanelMonedas monedas;
     public PanelComprador(){
-        titulo = new ImageIcon(getClass().getResource("/imagenes/ventana/cp.png")).getImage();
+        setLayout(new BorderLayout());
+        setSize(340, 750);
+        cuadrocomprador = new ImageIcon(getClass().getResource("/imagenes/ventana/cp.png")).getImage();
+        monedas = new PanelMonedas();
+        add(monedas, BorderLayout.CENTER);
         setOpaque(false);
     }
 
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(titulo, 0, 0, 340, 750, this);
+        g.drawImage(cuadrocomprador, 0, 0, 340, 750, this);
+        monedas.paintComponent(g);
     }
 }

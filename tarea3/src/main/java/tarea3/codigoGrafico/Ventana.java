@@ -6,6 +6,7 @@ import java.awt.*;
 public class Ventana extends JFrame {
     public Ventana(){
         super();
+        this.setLayout(new BorderLayout());
         this.setTitle("Maquina Expendedora");
         PanelPrincipal pp = new PanelPrincipal();
         this.add(pp,BorderLayout.CENTER);

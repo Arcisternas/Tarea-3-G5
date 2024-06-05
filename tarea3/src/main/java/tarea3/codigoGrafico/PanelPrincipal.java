@@ -8,6 +8,7 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     private PanelExpendedor exp;
   
     public PanelPrincipal () {
+        setSize(1000, 750);
         exp = new PanelExpendedor();
         com = new PanelComprador();
         setLayout(new BorderLayout());
