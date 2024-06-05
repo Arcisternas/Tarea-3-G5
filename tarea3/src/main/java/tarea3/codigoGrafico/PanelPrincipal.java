@@ -10,8 +10,9 @@ public class PanelPrincipal extends JPanel {//se ve en el centro de la ventana
     public PanelPrincipal () {
         exp = new PanelExpendedor();
         com = new PanelComprador();
-        this.add(exp);
-        this.add(com);
+        setLayout(new BorderLayout());
+        this.add(com, BorderLayout.CENTER);
+        this.add(exp, BorderLayout.CENTER);
         setOpaque(false);
 
     }
