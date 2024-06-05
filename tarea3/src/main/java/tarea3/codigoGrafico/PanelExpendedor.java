@@ -23,9 +23,8 @@ public class PanelExpendedor extends JPanel{
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(fondoBase, 0, 0, getWidth(), getHeight(), this);
+        g.drawImage(fondoBase, 340, 0, 660, 750, this);
         panpr.paintComponent(g);
-        
     }
 
 }

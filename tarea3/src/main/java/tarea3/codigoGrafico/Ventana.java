@@ -8,11 +8,11 @@ public class Ventana extends JFrame {
         super();
         this.setTitle("Maquina Expendedora");
         PanelPrincipal pp = new PanelPrincipal();
-        setContentPane(pp);
+        this.add(pp,BorderLayout.CENTER);
 
-        
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(1000,800);
+        this.setSize(1000,789);
+        this.setResizable(false);
         this.setVisible(true);
     }
 }
