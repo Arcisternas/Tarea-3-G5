@@ -3,6 +3,7 @@ package tarea3.codigoInterno;
 import tarea3.codigoInterno.Exeptions.NoHayProductoException;
 import tarea3.codigoInterno.Exeptions.PagoIncorrectoException;
 import tarea3.codigoInterno.Exeptions.PagoInsuficienteException;
+import tarea3.codigoInterno.Monedas.*;
 
 /** 
  * Main: Un comprador que utiliza un expendedor para consumir Bebidas o Dulces
@@ -25,7 +26,7 @@ public class Main {
 
         //1. Moneda >= Precio
         try {
-            m = new Moneda1500();
+            m = new Moneda1500(0);
             c = new Comprador(m, 1, exp);
         } catch (PagoInsuficienteException | NoHayProductoException | PagoIncorrectoException e) {
             e.printStackTrace();
@@ -39,7 +40,7 @@ public class Main {
         m = null;
         //2.Moneda < Precio
         try {
-            m = new Moneda100();
+            m = new Moneda100(0);
             c = new Comprador(m, 1, exp);
         } catch (PagoInsuficienteException | NoHayProductoException | PagoIncorrectoException e) {
             e.printStackTrace();
@@ -54,7 +55,7 @@ public class Main {
         
         //3.Moneda >= precio
         try {
-            m = new Moneda1500();
+            m = new Moneda1500(0);
             c = new Comprador(m, 1, exp);
         } catch (PagoInsuficienteException | NoHayProductoException | PagoIncorrectoException e) {
             e.printStackTrace();
@@ -84,7 +85,7 @@ public class Main {
 
         //5. Moneda == Precio
         try {
-            m = new Moneda1000();
+            m = new Moneda1000(0);
             c = new Comprador(m, 3, exp);
         } catch (PagoInsuficienteException | NoHayProductoException | PagoIncorrectoException e) {
             e.printStackTrace();
@@ -99,7 +100,7 @@ public class Main {
 
         //6. No hay mas producto
          try {
-            m = new Moneda1500();
+            m = new Moneda1500(0);
             c = new Comprador(m, 1, exp);
         } catch (PagoInsuficienteException | NoHayProductoException | PagoIncorrectoException e) {
             e.printStackTrace();

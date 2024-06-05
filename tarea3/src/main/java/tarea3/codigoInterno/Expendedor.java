@@ -4,6 +4,7 @@ import tarea3.codigoInterno.Exeptions.*;
 import tarea3.codigoInterno.Productos.Bebidas.*;
 import tarea3.codigoInterno.Productos.Dulces.*;
 import tarea3.codigoInterno.Productos.*;
+import tarea3.codigoInterno.Monedas.*;
 
 /**
  * Clase de Expendedor en el cual se guardan las monedas y productos, siendo posible comprar estos ultimos
@@ -86,31 +87,31 @@ public class Expendedor {
         switch (cual) {
             case 1:
                 cuantocuesta = LosProductos.SNICKERS.getPrecio();
-                if(m.compareTo(cuantocuesta) >= 0){
+                if(m.getValor() >= cuantocuesta){
                     p=(Dulce)snickers.get();
                 }
                 break;
             case 2:
                 cuantocuesta = LosProductos.SUPER8.getPrecio();
-                if(m.compareTo(cuantocuesta) >= 0){
+                if(m.getValor() >= cuantocuesta){
                     p=(Dulce)super8.get();
                 }
                 break;
             case 3:
                 cuantocuesta = LosProductos.COCACOLA.getPrecio();
-                if(m.compareTo(cuantocuesta) >= 0){
+                if(m.getValor() >= cuantocuesta){
                     p=(Bebida)coca.get();
                 }
                 break;
             case 4:
                 cuantocuesta = LosProductos.SPRITE.getPrecio();
-                if(m.compareTo(cuantocuesta) >= 0){
+                if(m.getValor() >= cuantocuesta){
                     p=(Bebida)sprite.get();
                 }
                 break;
             case 5:
                 cuantocuesta = LosProductos.FANTA.getPrecio();
-                if(m.compareTo(cuantocuesta) >= 0){
+                if(m.getValor() >= cuantocuesta){
                     p=(Bebida)fanta.get();
                 }
                 break;
@@ -118,7 +119,7 @@ public class Expendedor {
                 break;
         }
         
-        if(m.compareTo(cuantocuesta) == -1){  //¿El pago es menor al precio?
+        if(m.getValor() < cuantocuesta){  //¿El pago es menor al precio?
             vueltoM.add(m);
             p = null;
             System.out.println(p+", "+m.getValor());
@@ -130,14 +131,14 @@ public class Expendedor {
             System.out.println(p+", "+m.getValor());
             vueltoM.get();
             throw new NoHayProductoException("El deposito esta vacio");
-        } else if (m.compareTo(cuantocuesta) >= 0){//¿el pago es correcto?
+        } else if (m.getValor() >= cuantocuesta){//¿el pago es correcto?
 
             exito.add(m);
             cantMonedas100 = (m.getValor() - cuantocuesta) / 100;
             producto.add(p);
 
             for (int i = 0; i < cantMonedas100; i++) {
-                Moneda sobrante = new Moneda100();
+                Moneda sobrante = new Moneda100(i);
                 vueltoM.add(sobrante);
             }
         }
