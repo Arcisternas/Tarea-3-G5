@@ -88,22 +88,27 @@ public class PanelProductos extends JPanel {
                 case 1:
                     Image dibujo = (new ImageIcon(getClass().getResource("/imagenes/productos/coca.png")).getImage());
                     g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    
                     break;
                 case 2:
                     dibujo = (new ImageIcon(getClass().getResource("/imagenes/productos/sprite.png")).getImage());
                     g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                   
                     break;
                 case 3:
                     dibujo = new ImageIcon(getClass().getResource("/imagenes/productos/fanta.png")).getImage();
                     g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    
                     break;
                 case 4:
                     dibujo = new ImageIcon(getClass().getResource("/imagenes/productos/snickers.png")).getImage();
                     g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    
                     break;
                 case 5:
                     dibujo = new ImageIcon(getClass().getResource("/imagenes/productos/super8.png")).getImage();
                     g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    
                     break;
             
                 default:
@@ -161,6 +166,11 @@ public class PanelProductos extends JPanel {
     public boolean seCompra(){
         boolean se = compra;
         compra = false;
+        return se;
+    }
+    public boolean seDibuja(){
+        boolean se = dibujar;
+        dibujar = false;
         return se;
     }
 }
