@@ -47,7 +47,9 @@ public class BotonesExp extends JPanel implements ActionListener{
                 val = (int) b.getClientProperty("value");
                 selecc = pc.getMonedaDeMoneda();
                 panpr.getImagenProducto(val, selecc);
-                pc.removeValorMoneda();
+                if(panpr.seCompra()){
+                    pc.removeValorMoneda();
+                }
                 repaint();
             }
         };

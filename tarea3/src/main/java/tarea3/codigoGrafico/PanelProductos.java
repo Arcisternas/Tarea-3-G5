@@ -20,8 +20,10 @@ public class PanelProductos extends JPanel {
     private Deposito<ImageIcon> Super8;
     private Deposito<ImageIcon> Productos;
     private Expendedor exp;
+    private boolean compra;
     
     public PanelProductos(Expendedor exp){
+        this.compra = false;
         this.Coca = new Deposito<>();
         this.Sprite = new Deposito<>();
         this.Fanta  = new Deposito<>();
@@ -87,7 +89,7 @@ public class PanelProductos extends JPanel {
             case 1:
                 if(Coca.size() != 0 && (selecc.getValor() >= LosProductos.COCACOLA.getPrecio())){
                     Coca.get();
-                    
+                    compra = true;
                     
                 }
                 break;
@@ -95,29 +97,38 @@ public class PanelProductos extends JPanel {
             case 2:
                 if(Sprite.size() != 0 && (selecc.getValor() >= LosProductos.SPRITE.getPrecio())){
                     Sprite.get();
+                    compra = true;
                 } 
                 break;
 
             case 3:
                 if(Fanta.size() != 0 && (selecc.getValor() >= LosProductos.FANTA.getPrecio())){
                     Fanta.get();
+                    compra = true;
                 } 
                 break;
 
             case 4:
                 if(Snickers.size() != 0 && (selecc.getValor() >= LosProductos.SNICKERS.getPrecio())){
                     Snickers.get();
+                    compra = true;
                 }
                 break;
 
             case 5:
                 if(Super8.size() != 0 && (selecc.getValor() >= LosProductos.SUPER8.getPrecio())){
                     Super8.get();
+                    compra = true;
                 }
                 break;
 
             default:
                 break;
         }
+    }
+    public boolean seCompra(){
+        boolean se = compra;
+        compra = false;
+        return se;
     }
 }
