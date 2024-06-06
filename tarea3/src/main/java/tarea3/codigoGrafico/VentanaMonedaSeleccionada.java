@@ -8,8 +8,11 @@ public class VentanaMonedaSeleccionada extends JFrame{
     public VentanaMonedaSeleccionada(Moneda monedaSeleccionada){
         super();
         setLayout(null);
-        setBounds(5, 80, 330, 315);
+        setBounds(5, 80, 250, 250);
         this.setTitle("Moneda Seleccionada");
+        this.setResizable(false);
         this.setVisible(true);
+        PanelMonedaSeleccionada pm = new PanelMonedaSeleccionada(monedaSeleccionada);
+        this.add(pm);
     }
 }

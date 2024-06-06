@@ -23,6 +23,7 @@ public class PanelMonedas extends JPanel{
     private VentanaMonedaSeleccionada ventanaMonedaSeleccionada;
     private Moneda monedaSeleccionada;
     private int valorMonedaSeleccionada;
+    private Boolean ventanaabierta = false;
     public PanelMonedas() {
         mon100 = PanelComprador.comprador.getCantidadMonedas(100);
         mon500 = PanelComprador.comprador.getCantidadMonedas(500);
@@ -95,7 +96,12 @@ public class PanelMonedas extends JPanel{
     }
     public void seleccionarMoneda(int precio){
         monedaSeleccionada = PanelComprador.comprador.getMonedaSeleccionada(precio);
+        if (ventanaabierta == true) {
+            ventanaMonedaSeleccionada.dispose();
+            ventanaabierta = false;
+        }
         ventanaMonedaSeleccionada = new VentanaMonedaSeleccionada(monedaSeleccionada);
+        ventanaabierta = true;
     }
     public Moneda getMonedaSelecc(){
         return monedaSeleccionada;
