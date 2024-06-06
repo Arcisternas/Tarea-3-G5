@@ -1,26 +1,34 @@
 package tarea3.codigoGrafico;
 
-import java.awt.*;
 import javax.swing.*;
 
 import tarea3.codigoInterno.Monedas.Moneda;
 
 import java.awt.event.*;
 
+/**
+ * Una Clase(Panel) de tipo Botones para la maquina expendedora
+ * @author Maria Jesus Olivares
+ */
+
 public class BotonesExp extends JPanel implements ActionListener{
+
+    //se definen botones
     private JButton boton1;
     private JButton boton2;
     private JButton boton3;
     private JButton boton4;
     private JButton boton5;
-    private final PanelProductos panpr;
-    private final PanelComprador pc;
+    //y los parametros a utilizar para el action listener junto a auxiliares
     private Moneda selecc;
     private int val;
 
+    /**
+     * Constructor de los botones, en el se inicializa el panel numerico para la compra
+     * @param panpr Panel de Productos
+     * @param pc    Panel del Comprador
+     */
     public BotonesExp(final PanelProductos panpr, final PanelComprador pc){
-        this.panpr = panpr;
-        this.pc = pc;
         setLayout(null);
         setBounds(5, 80, 330, 315);
         boton1 = new JButton();
@@ -34,23 +42,27 @@ public class BotonesExp extends JPanel implements ActionListener{
         boton4.setBounds(852, 285, 33, 33);
         boton5.setBounds(811, 318, 33, 33);
 
+        //se le asigna un valor de tipo int a los botones que estaran en el panel
+
         boton1.putClientProperty("value", 1);
         boton2.putClientProperty("value", 2);
         boton3.putClientProperty("value", 3);
         boton4.putClientProperty("value", 4);
         boton5.putClientProperty("value", 5);
+
+        //Se hace new del ActionListener para activar los botones
         
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
                 JButton b = (JButton) e.getSource();
-                val = (int) b.getClientProperty("value");
-                selecc = pc.getMonedaDeMoneda();
-                panpr.getImagenProducto(val, selecc);
-                if(panpr.seCompra()){
+                val = (int) b.getClientProperty("value");   //valor int del boton
+                selecc = pc.getMonedaDeMoneda();            //valor de la moneda seleccionada en el panel del comprador
+                panpr.getImagenProducto(val, selecc);       //se compra el producto
+                if(panpr.seCompra()){   //si se compra se remueve la moneda del "monedero"
                     pc.removeValorMoneda();
                     
-                }else{
+                }else{                  //si no, no se imprime el producto
                     panpr.seDibuja();
                 }
                 repaint();
@@ -68,12 +80,13 @@ public class BotonesExp extends JPanel implements ActionListener{
         add(boton5);
         setOpaque(false);
     }
+    /**
+     * metodo que retorna el valor del boton presionado
+     * @return valor del boton
+     */
     public int getval(){
         return val;
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-    }
+    public void actionPerformed(ActionEvent e) {}
 }

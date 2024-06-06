@@ -4,9 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 import tarea3.codigoInterno.Monedas.*;
 
+/**
+ * Clase(Panel) de la moneda seleccionada con el boton
+ * @author Ariel Cisternas
+ */
+
 public class PanelMonedaSeleccionada extends JPanel {
     private Moneda monedaSeleccionada;
     private Image moneda;
+
+    /**
+     * Constuctor que necesita como parametro la moneda que se selecciona al presionar el boton, asi inicializa una ventana con la imagen respectiva
+     * @param monedaSeleccionada en los botones de monedas
+     */
     public PanelMonedaSeleccionada(Moneda monedaSeleccionada){ 
         this.monedaSeleccionada = monedaSeleccionada;
         if (monedaSeleccionada.getValor() == 100) {

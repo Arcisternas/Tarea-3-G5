@@ -1,8 +1,12 @@
 package tarea3.codigoGrafico;
 
 import javax.swing.*;
-import java.awt.*;
 import tarea3.codigoInterno.Monedas.*;
+
+/**
+ * Jframe con una Ventana de la moneda que fue seleccionada previamente
+ * @author Ariel Cisternas
+ */
 
 public class VentanaMonedaSeleccionada extends JFrame{
     public VentanaMonedaSeleccionada(Moneda monedaSeleccionada){

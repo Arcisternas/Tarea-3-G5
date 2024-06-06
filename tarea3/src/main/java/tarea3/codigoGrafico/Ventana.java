@@ -3,6 +3,11 @@ package tarea3.codigoGrafico;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Jframe de Ventana donde se dibuja todo lo que es la expendedora y el comprador
+ * @author Maria Jesus Olivares
+ */
+
 public class Ventana extends JFrame {
     public Ventana(){
         super();

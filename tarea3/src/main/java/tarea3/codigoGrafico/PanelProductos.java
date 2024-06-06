@@ -1,28 +1,32 @@
 package tarea3.codigoGrafico;
 
 import tarea3.codigoInterno.*;
-import tarea3.codigoInterno.Exeptions.NoHayProductoException;
-import tarea3.codigoInterno.Exeptions.PagoIncorrectoException;
-import tarea3.codigoInterno.Exeptions.PagoInsuficienteException;
 import tarea3.codigoInterno.Monedas.Moneda;
-import tarea3.codigoInterno.Productos.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
 
+/**
+ * Clase(Panel) de los Productos para Visualizarlos en la maquina expendedora
+ * @author Maria Jesus Olivares
+ */
 
 public class PanelProductos extends JPanel {
+    //Depositos
     private Deposito<ImageIcon> Coca;
     private Deposito<ImageIcon> Sprite;
     private Deposito<ImageIcon> Fanta;
     private Deposito<ImageIcon> Snickers;
     private Deposito<ImageIcon> Super8;
-    private Expendedor exp;
+    //auxiliares para detectar compra, si dibujar un producto y el numero correspondiente
     private boolean compra;
     private boolean dibujar;
     private int num;
     
+    /**
+     * Constructor donde se dibujan los productos en el expendedor
+     * @param exp
+     */
     public PanelProductos(Expendedor exp){
         this.compra = false;
         this.Coca = new Deposito<>();
@@ -30,7 +34,6 @@ public class PanelProductos extends JPanel {
         this.Fanta  = new Deposito<>();
         this.Snickers = new Deposito<>();
         this.Super8 = new Deposito<>();
-        this.exp = exp;
 
         for (int i = 0; i < 6; i++) {
             
@@ -83,7 +86,7 @@ public class PanelProductos extends JPanel {
                 x5 += 20;
             }
         }
-        if(dibujar){
+        if(dibujar){    //si dibujar es true, en la base de la maquina, se dibuja el producto entregado
             switch (num) {
                 case 1:
                     Image dibujo = (new ImageIcon(getClass().getResource("/imagenes/productos/coca.png")).getImage());
@@ -116,14 +119,19 @@ public class PanelProductos extends JPanel {
             }
         }
     }
+    /**
+     * Metodo que se utiliza para comprar los productos
+     * @param num int del panel numerico
+     * @param selecc Moneda seleccionada para pagar
+     */
     public void getImagenProducto(int num, Moneda selecc){
         this.num = num;
         switch (num) {
             case 1:
                 if(Coca.size() != 0 && (selecc.getValor() >= LosProductos.COCACOLA.getPrecio())){
                     Coca.get();
-                    compra = true;
-                    dibujar = true;
+                    compra = true; //compra efectiva
+                    dibujar = true; //se dibuja
                 }
                 break;
             
@@ -163,11 +171,19 @@ public class PanelProductos extends JPanel {
                 break;
         }
     }
+    /**
+     * Metodo que retorna un booleano si se compra y se reinicia su valor
+     * @return boolean de seCompra
+     */
     public boolean seCompra(){
         boolean se = compra;
         compra = false;
         return se;
     }
+    /**
+     * Metodo que retorna un booleano si se dibuja y se reinicia su valor
+     * @return boolean de seDibuja
+     */
     public boolean seDibuja(){
         boolean se = dibujar;
         dibujar = false;

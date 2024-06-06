@@ -3,9 +3,13 @@ package tarea3.codigoGrafico;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.border.Border;
 
 import tarea3.codigoInterno.Monedas.*;
+
+/**
+ * Clase(Panel) de las Monedas
+ * @author Ariel Cisternas
+ */
 
 public class PanelMonedas extends JPanel{
     private JButton botonMoneda100;
@@ -24,13 +28,21 @@ public class PanelMonedas extends JPanel{
     private Moneda monedaSeleccionada;
     private int valorMonedaSeleccionada;
     private Boolean ventanaabierta = false;
+
+    /**
+     * Constructor donde se visualiza a las monedas, se genera un contador y sus respectivos botones
+     */
     public PanelMonedas() {
+        //cantidades que se tiene disponible en el monedero
         mon100 = PanelComprador.comprador.getCantidadMonedas(100);
         mon500 = PanelComprador.comprador.getCantidadMonedas(500);
         mon1000 = PanelComprador.comprador.getCantidadMonedas(1000);
         mon1500 = PanelComprador.comprador.getCantidadMonedas(1500);
+
         setLayout(null);
         setBounds(5, 80, 330, 315);
+
+        //botones e imagen
         botonMoneda100 = new JButton();
         botonMoneda500 = new JButton();
         botonMoneda1000 = new JButton();
@@ -51,6 +63,8 @@ public class PanelMonedas extends JPanel{
         add(botonMoneda500);
         add(botonMoneda1000);
         add(botonMoneda1500);
+
+        //action listener donde se guarda el valor de la moneda seleccionada
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -95,6 +109,10 @@ public class PanelMonedas extends JPanel{
         g.drawString("$1000", 215, 115);
         g.drawString("$1500", 215, 270);
     }
+    /**
+     * metodo para generar una ventana con la moneda que se usa al presionar un boton
+     * @param precio int del valor del boton precionado
+     */
     public void seleccionarMoneda(int precio){
         monedaSeleccionada = PanelComprador.comprador.getMonedaSeleccionada(precio);
         if (ventanaabierta == true) {
@@ -104,12 +122,24 @@ public class PanelMonedas extends JPanel{
         ventanaMonedaSeleccionada = new VentanaMonedaSeleccionada(monedaSeleccionada);
         ventanaabierta = true;
     }
+
+    /**
+     * metodo que guarda el valor de la moneda seleccionada
+     * @return Moneda seleccionada
+     */
     public Moneda getMonedaSelecc(){
         return monedaSeleccionada;
     }
+    /**
+     * metodo que guarda el valor de la moneda seleccionada
+     * @return int del valor de la moneda
+     */
     public int getValorMonedaSeleccionada(){
         return valorMonedaSeleccionada;
     }
+    /**
+     * Metodo que elimina del "monedero" la moneda usada
+     */
     public void removeValor(){
         switch (monedaSeleccionada.getValor()) {
             case 100:
