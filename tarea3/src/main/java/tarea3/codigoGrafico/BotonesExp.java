@@ -15,7 +15,7 @@ public class BotonesExp extends JPanel implements ActionListener{
     private JButton boton5;
     private final PanelProductos panpr;
     private final PanelComprador pc;
-    private int selecc;
+    private Moneda selecc;
     private int val;
 
     public BotonesExp(final PanelProductos panpr, final PanelComprador pc){
@@ -45,8 +45,9 @@ public class BotonesExp extends JPanel implements ActionListener{
             public void actionPerformed(ActionEvent e){
                 JButton b = (JButton) e.getSource();
                 val = (int) b.getClientProperty("value");
-                selecc = pc.getValorDeMoneda();
+                selecc = pc.getMonedaDeMoneda();
                 panpr.getImagenProducto(val, selecc);
+                pc.removeValorMoneda();
                 repaint();
             }
         };

@@ -86,34 +86,37 @@ public class Expendedor {
         //¿el pago es mayor o igual al precio?
         switch (cual) {
             case 1:
-                cuantocuesta = LosProductos.SNICKERS.getPrecio();
-                if(m.getValor() >= cuantocuesta){
-                    p=(Dulce)snickers.get();
-                }
-                break;
-            case 2:
-                cuantocuesta = LosProductos.SUPER8.getPrecio();
-                if(m.getValor() >= cuantocuesta){
-                    p=(Dulce)super8.get();
-                }
-                break;
-            case 3:
                 cuantocuesta = LosProductos.COCACOLA.getPrecio();
                 if(m.getValor() >= cuantocuesta){
                     p=(Bebida)coca.get();
                 }
                 break;
-            case 4:
+                
+            case 2:
                 cuantocuesta = LosProductos.SPRITE.getPrecio();
                 if(m.getValor() >= cuantocuesta){
                     p=(Bebida)sprite.get();
                 }
+                
                 break;
-            case 5:
+            case 3:
                 cuantocuesta = LosProductos.FANTA.getPrecio();
                 if(m.getValor() >= cuantocuesta){
                     p=(Bebida)fanta.get();
                 }
+                break;
+            case 4:
+                cuantocuesta = LosProductos.SNICKERS.getPrecio();
+                if(m.getValor() >= cuantocuesta){
+                    p=(Dulce)snickers.get();
+                }
+                break;
+                
+            case 5:
+                cuantocuesta = LosProductos.SUPER8.getPrecio();
+                if(m.getValor() >= cuantocuesta){
+                    p=(Dulce)super8.get();
+                }  
                 break;
             default:
                 break;

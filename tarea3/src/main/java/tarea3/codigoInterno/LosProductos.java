@@ -7,11 +7,11 @@ package tarea3.codigoInterno;
 
 public enum LosProductos{
     /** Se enumeran los productos (Sean Dulces o Bebidas) para facilitar procesos */ 
-    SNICKERS(1),
-    SUPER8(2),
-    COCACOLA(3),
-    SPRITE(4),
-    FANTA(5);
+    COCACOLA(1),
+    SPRITE(2),
+    FANTA(3),
+    SNICKERS(4),
+    SUPER8(5);
 
     /** Int para asignar precios a cada producto*/
     private int precio;
@@ -34,19 +34,19 @@ public enum LosProductos{
     public int getPrecio(){
         switch (num) {
             case 1:
-                precio = 300;
-                break;
-            case 2:
-                precio = 500;
-                break;
-            case 3:
                 precio = 1000;
                 break;
-            case 4:
+            case 2:
                 precio = 900;
                 break;
-            case 5:
+            case 3:
                 precio = 800;
+                break;
+            case 4:
+                precio = 500;
+                break;
+            case 5:
+                precio = 300;
                 break;
             default:
                 break;

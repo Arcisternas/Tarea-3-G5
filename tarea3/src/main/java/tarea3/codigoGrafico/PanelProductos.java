@@ -1,6 +1,9 @@
 package tarea3.codigoGrafico;
 
 import tarea3.codigoInterno.*;
+import tarea3.codigoInterno.Exeptions.NoHayProductoException;
+import tarea3.codigoInterno.Exeptions.PagoIncorrectoException;
+import tarea3.codigoInterno.Exeptions.PagoInsuficienteException;
 import tarea3.codigoInterno.Monedas.Moneda;
 import tarea3.codigoInterno.Productos.*;
 
@@ -78,35 +81,37 @@ public class PanelProductos extends JPanel {
             }
         }
     }
-    public void getImagenProducto(int num, int selecc){
+    public void getImagenProducto(int num, Moneda selecc){
         
         switch (num) {
             case 1:
-                if(Coca.size() != 0 && (selecc >= LosProductos.COCACOLA.getPrecio())){
+                if(Coca.size() != 0 && (selecc.getValor() >= LosProductos.COCACOLA.getPrecio())){
                     Coca.get();
+                    
+                    
                 }
                 break;
             
             case 2:
-                if(Sprite.size() != 0 && (selecc >= LosProductos.SPRITE.getPrecio())){
+                if(Sprite.size() != 0 && (selecc.getValor() >= LosProductos.SPRITE.getPrecio())){
                     Sprite.get();
                 } 
                 break;
 
             case 3:
-                if(Fanta.size() != 0 && (selecc >= LosProductos.FANTA.getPrecio())){
+                if(Fanta.size() != 0 && (selecc.getValor() >= LosProductos.FANTA.getPrecio())){
                     Fanta.get();
                 } 
                 break;
 
             case 4:
-                if(Snickers.size() != 0 && (selecc >= LosProductos.SNICKERS.getPrecio())){
+                if(Snickers.size() != 0 && (selecc.getValor() >= LosProductos.SNICKERS.getPrecio())){
                     Snickers.get();
                 }
                 break;
 
             case 5:
-                if(Super8.size() != 0 && (selecc >= LosProductos.SUPER8.getPrecio())){
+                if(Super8.size() != 0 && (selecc.getValor() >= LosProductos.SUPER8.getPrecio())){
                     Super8.get();
                 }
                 break;

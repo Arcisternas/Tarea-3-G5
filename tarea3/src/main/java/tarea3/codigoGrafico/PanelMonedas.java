@@ -69,6 +69,7 @@ public class PanelMonedas extends JPanel{
                     
                 }
                 seleccionarMoneda(valorMonedaSeleccionada);
+                repaint();
             }
         };
         
@@ -107,7 +108,28 @@ public class PanelMonedas extends JPanel{
         return monedaSeleccionada;
     }
     public int getValorMonedaSeleccionada(){
-        
         return valorMonedaSeleccionada;
+    }
+    public void removeValor(){
+        switch (monedaSeleccionada.getValor()) {
+            case 100:
+                mon100--;
+                monedaSeleccionada = null;
+                break;
+            case 500:
+                mon500--;
+                monedaSeleccionada = null;
+                break;
+            case 1000:
+                mon1000--;
+                monedaSeleccionada = null;
+                break;
+            case 1500:
+                mon1500--;
+                monedaSeleccionada = null;
+                break;
+            default:
+                break;
+        };   
     }
 }

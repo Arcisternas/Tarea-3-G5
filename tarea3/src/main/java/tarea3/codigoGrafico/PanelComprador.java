@@ -36,4 +36,10 @@ public class PanelComprador extends JPanel{
     public int getValorDeMoneda(){
         return monedas.getValorMonedaSeleccionada();
     }
+    public Moneda getMonedaDeMoneda(){
+        return monedas.getMonedaSelecc();
+    }
+    public void removeValorMoneda(){
+        monedas.removeValor();
+    }
 }
