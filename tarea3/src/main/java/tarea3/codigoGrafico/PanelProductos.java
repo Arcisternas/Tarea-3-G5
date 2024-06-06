@@ -18,9 +18,10 @@ public class PanelProductos extends JPanel {
     private Deposito<ImageIcon> Fanta;
     private Deposito<ImageIcon> Snickers;
     private Deposito<ImageIcon> Super8;
-    private Deposito<ImageIcon> Productos;
     private Expendedor exp;
     private boolean compra;
+    private boolean dibujar;
+    private int num;
     
     public PanelProductos(Expendedor exp){
         this.compra = false;
@@ -52,8 +53,8 @@ public class PanelProductos extends JPanel {
         int x3 = x1;
         int x4 = x2;
         int x5 = x1;
-        int xfijo = 800;
-        int yfijo = 500;
+        int xfijo = 570;
+        int yfijo = 613;
 
         for(int i = 0; i < 6 ;i++){
             if(Coca.size() > i){
@@ -82,15 +83,42 @@ public class PanelProductos extends JPanel {
                 x5 += 20;
             }
         }
+        if(dibujar){
+            switch (num) {
+                case 1:
+                    Image dibujo = (new ImageIcon(getClass().getResource("/imagenes/productos/coca.png")).getImage());
+                    g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    break;
+                case 2:
+                    dibujo = (new ImageIcon(getClass().getResource("/imagenes/productos/sprite.png")).getImage());
+                    g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    break;
+                case 3:
+                    dibujo = new ImageIcon(getClass().getResource("/imagenes/productos/fanta.png")).getImage();
+                    g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    break;
+                case 4:
+                    dibujo = new ImageIcon(getClass().getResource("/imagenes/productos/snickers.png")).getImage();
+                    g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    break;
+                case 5:
+                    dibujo = new ImageIcon(getClass().getResource("/imagenes/productos/super8.png")).getImage();
+                    g.drawImage(dibujo, xfijo, yfijo, 60, 60, this);
+                    break;
+            
+                default:
+                    break;
+            }
+        }
     }
     public void getImagenProducto(int num, Moneda selecc){
-        
+        this.num = num;
         switch (num) {
             case 1:
                 if(Coca.size() != 0 && (selecc.getValor() >= LosProductos.COCACOLA.getPrecio())){
                     Coca.get();
                     compra = true;
-                    
+                    dibujar = true;
                 }
                 break;
             
@@ -98,6 +126,7 @@ public class PanelProductos extends JPanel {
                 if(Sprite.size() != 0 && (selecc.getValor() >= LosProductos.SPRITE.getPrecio())){
                     Sprite.get();
                     compra = true;
+                    dibujar = true;
                 } 
                 break;
 
@@ -105,6 +134,7 @@ public class PanelProductos extends JPanel {
                 if(Fanta.size() != 0 && (selecc.getValor() >= LosProductos.FANTA.getPrecio())){
                     Fanta.get();
                     compra = true;
+                    dibujar = true;
                 } 
                 break;
 
@@ -112,6 +142,7 @@ public class PanelProductos extends JPanel {
                 if(Snickers.size() != 0 && (selecc.getValor() >= LosProductos.SNICKERS.getPrecio())){
                     Snickers.get();
                     compra = true;
+                    dibujar = true;
                 }
                 break;
 
@@ -119,6 +150,7 @@ public class PanelProductos extends JPanel {
                 if(Super8.size() != 0 && (selecc.getValor() >= LosProductos.SUPER8.getPrecio())){
                     Super8.get();
                     compra = true;
+                    dibujar = true;
                 }
                 break;
 
