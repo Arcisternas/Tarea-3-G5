@@ -1,10 +1,13 @@
 package tarea3.codigoGrafico;
 
 import tarea3.codigoInterno.*;
+import tarea3.codigoInterno.Monedas.Moneda;
+import tarea3.codigoInterno.Productos.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
+
 
 public class PanelProductos extends JPanel {
     private Deposito<ImageIcon> Coca;
@@ -12,14 +15,16 @@ public class PanelProductos extends JPanel {
     private Deposito<ImageIcon> Fanta;
     private Deposito<ImageIcon> Snickers;
     private Deposito<ImageIcon> Super8;
-    private BotonesExp be;
+    private Deposito<ImageIcon> Productos;
+    private Expendedor exp;
     
-    public PanelProductos(){
+    public PanelProductos(Expendedor exp){
         this.Coca = new Deposito<>();
         this.Sprite = new Deposito<>();
         this.Fanta  = new Deposito<>();
         this.Snickers = new Deposito<>();
         this.Super8 = new Deposito<>();
+        this.exp = exp;
 
         for (int i = 0; i < 6; i++) {
             
@@ -30,6 +35,7 @@ public class PanelProductos extends JPanel {
             Super8.add(new ImageIcon(new ImageIcon(getClass().getResource("/imagenes/productos/super8.png")).getImage()));
             
         }
+
         setOpaque(false);
     }
 
@@ -41,6 +47,8 @@ public class PanelProductos extends JPanel {
         int x3 = x1;
         int x4 = x2;
         int x5 = x1;
+        int xfijo = 800;
+        int yfijo = 500;
 
         for(int i = 0; i < 6 ;i++){
             if(Coca.size() > i){
@@ -69,28 +77,38 @@ public class PanelProductos extends JPanel {
                 x5 += 20;
             }
         }
-        
     }
-    public void getImagenProducto(int num){
+    public void getImagenProducto(int num, int selecc){
+        
         switch (num) {
             case 1:
-                if(Coca.size() != 0) Coca.get();
+                if(Coca.size() != 0 && (selecc >= LosProductos.COCACOLA.getPrecio())){
+                    Coca.get();
+                }
                 break;
             
             case 2:
-                if(Sprite.size() != 0) Sprite.get();
+                if(Sprite.size() != 0 && (selecc >= LosProductos.SPRITE.getPrecio())){
+                    Sprite.get();
+                } 
                 break;
 
             case 3:
-                if(Fanta.size() != 0) Fanta.get();
+                if(Fanta.size() != 0 && (selecc >= LosProductos.FANTA.getPrecio())){
+                    Fanta.get();
+                } 
                 break;
 
             case 4:
-                if(Snickers.size() != 0)Snickers.get();
+                if(Snickers.size() != 0 && (selecc >= LosProductos.SNICKERS.getPrecio())){
+                    Snickers.get();
+                }
                 break;
 
             case 5:
-                if(Super8.size() != 0)Super8.get();
+                if(Super8.size() != 0 && (selecc >= LosProductos.SUPER8.getPrecio())){
+                    Super8.get();
+                }
                 break;
 
             default:

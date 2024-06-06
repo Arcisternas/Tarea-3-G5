@@ -21,7 +21,7 @@ public class PanelMonedas extends JPanel{
     private int mon1000;
     private int mon1500;
     private VentanaMonedaSeleccionada ventanaMonedaSeleccionada;
-    protected Moneda monedaSeleccionada;
+    private Moneda monedaSeleccionada;
     private int valorMonedaSeleccionada;
     public PanelMonedas() {
         mon100 = PanelComprador.comprador.getCantidadMonedas(100);
@@ -56,21 +56,21 @@ public class PanelMonedas extends JPanel{
                 JButton b = (JButton) e.getSource();
                 if (b == botonMoneda100) {
                     valorMonedaSeleccionada = 100;
-                    seleccionarMoneda(valorMonedaSeleccionada);
-                    System.out.println("Moneda 100");
+                    
                 } else if (b == botonMoneda500) {
                     valorMonedaSeleccionada = 500;
-                    seleccionarMoneda(valorMonedaSeleccionada);
+                    
                 } else if (b == botonMoneda1000) {
                     valorMonedaSeleccionada = 1000;
-                    seleccionarMoneda(valorMonedaSeleccionada);
+                    
                 } else if (b == botonMoneda1500) {
                     valorMonedaSeleccionada = 1500;
-                    seleccionarMoneda(valorMonedaSeleccionada);
+                    
                 }
-                repaint();
+                seleccionarMoneda(valorMonedaSeleccionada);
             }
         };
+        
         botonMoneda100.addActionListener(listener);
         botonMoneda500.addActionListener(listener);
         botonMoneda1000.addActionListener(listener);
@@ -97,7 +97,11 @@ public class PanelMonedas extends JPanel{
         monedaSeleccionada = PanelComprador.comprador.getMonedaSeleccionada(precio);
         ventanaMonedaSeleccionada = new VentanaMonedaSeleccionada(monedaSeleccionada);
     }
+    public Moneda getMonedaSelecc(){
+        return monedaSeleccionada;
+    }
     public int getValorMonedaSeleccionada(){
+        
         return valorMonedaSeleccionada;
     }
 }

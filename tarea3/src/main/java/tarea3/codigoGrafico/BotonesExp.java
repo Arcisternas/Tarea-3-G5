@@ -2,6 +2,9 @@ package tarea3.codigoGrafico;
 
 import java.awt.*;
 import javax.swing.*;
+
+import tarea3.codigoInterno.Monedas.Moneda;
+
 import java.awt.event.*;
 
 public class BotonesExp extends JPanel implements ActionListener{
@@ -11,10 +14,13 @@ public class BotonesExp extends JPanel implements ActionListener{
     private JButton boton4;
     private JButton boton5;
     private final PanelProductos panpr;
+    private final PanelComprador pc;
+    private int selecc;
     private int val;
 
-    public BotonesExp(final PanelProductos panpr){
+    public BotonesExp(final PanelProductos panpr, final PanelComprador pc){
         this.panpr = panpr;
+        this.pc = pc;
         setLayout(null);
         setBounds(5, 80, 330, 315);
         boton1 = new JButton();
@@ -39,7 +45,8 @@ public class BotonesExp extends JPanel implements ActionListener{
             public void actionPerformed(ActionEvent e){
                 JButton b = (JButton) e.getSource();
                 val = (int) b.getClientProperty("value");
-                panpr.getImagenProducto(val);
+                selecc = pc.getValorDeMoneda();
+                panpr.getImagenProducto(val, selecc);
                 repaint();
             }
         };

@@ -33,4 +33,7 @@ public class PanelComprador extends JPanel{
         g.drawImage(cuadrocomprador, 0, 0, 340, 750, this);
         monedas.paintComponent(g);
     }
+    public int getValorDeMoneda(){
+        return monedas.getValorMonedaSeleccionada();
+    }
 }
