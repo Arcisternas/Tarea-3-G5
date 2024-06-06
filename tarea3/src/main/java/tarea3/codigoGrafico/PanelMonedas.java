@@ -22,6 +22,7 @@ public class PanelMonedas extends JPanel{
     private int mon1500;
     private VentanaMonedaSeleccionada ventanaMonedaSeleccionada;
     protected Moneda monedaSeleccionada;
+    private int valorMonedaSeleccionada;
     public PanelMonedas() {
         mon100 = PanelComprador.comprador.getCantidadMonedas(100);
         mon500 = PanelComprador.comprador.getCantidadMonedas(500);
@@ -54,13 +55,18 @@ public class PanelMonedas extends JPanel{
             public void actionPerformed(ActionEvent e) {
                 JButton b = (JButton) e.getSource();
                 if (b == botonMoneda100) {
-                    seleccionarMoneda(100);
+                    valorMonedaSeleccionada = 100;
+                    seleccionarMoneda(valorMonedaSeleccionada);
+                    System.out.println("Moneda 100");
                 } else if (b == botonMoneda500) {
-                    seleccionarMoneda(500);
+                    valorMonedaSeleccionada = 500;
+                    seleccionarMoneda(valorMonedaSeleccionada);
                 } else if (b == botonMoneda1000) {
-                    seleccionarMoneda(1000);
+                    valorMonedaSeleccionada = 1000;
+                    seleccionarMoneda(valorMonedaSeleccionada);
                 } else if (b == botonMoneda1500) {
-                    seleccionarMoneda(1500);
+                    valorMonedaSeleccionada = 1500;
+                    seleccionarMoneda(valorMonedaSeleccionada);
                 }
                 repaint();
             }
@@ -90,5 +96,8 @@ public class PanelMonedas extends JPanel{
     public void seleccionarMoneda(int precio){
         monedaSeleccionada = PanelComprador.comprador.getMonedaSeleccionada(precio);
         ventanaMonedaSeleccionada = new VentanaMonedaSeleccionada(monedaSeleccionada);
+    }
+    public int getValorMonedaSeleccionada(){
+        return valorMonedaSeleccionada;
     }
 }
